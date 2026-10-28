@@ -1057,3 +1057,45 @@ html {
 #unlock-btn {
     margin-top: 15px;
 }
+
+/* --- FLOATING WHATSAPP BUTTON (FIXED DESIGN) --- */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Makes it a perfect circle */
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+    z-index: 9999;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-whatsapp i {
+    font-size: 2.2rem; /* Bigger icon */
+    color: #ffffff;
+}
+
+.floating-whatsapp span {
+    display: none; /* Hides the text "Hire Me" so it's a clean circle */
+}
+
+.floating-whatsapp:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.7);
+}
+
+@media (max-width: 768px) {
+    .floating-whatsapp {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+    }
+}
