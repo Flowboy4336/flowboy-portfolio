@@ -6,8 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const leadForm = document.getElementById("lead-form");
 
     // --- 1. INITIAL LOAD LOGIC ---
-    // If they already unlocked it, show logo then site. 
-    // If they haven't, show the form immediately.
     if (localStorage.getItem("flowboy_unlocked") === "true") {
         // Returning user: Show logo, then site
         setTimeout(() => {
@@ -16,37 +14,34 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(initAnimations, 500); 
         }, 2000);
     } else {
-        // New user: Hide preloader immediately, show form
+        // New user: Hide preloader immediately, show the form
         preloader.classList.add("hidden");
         modal.classList.remove("hidden"); 
     }
 
-    // --- 2. SUBMIT FORM LOGIC ---
+    // --- 2. SUBMIT FORM LOGIC (INSTANT UNLOCK) ---
     leadForm.addEventListener("submit", function(e) {
         e.preventDefault(); 
         
-        // 1. Hide the form instantly
+        // 1. INSTANTLY Hide the form and show the logo
         modal.classList.add("hidden");
-
-        // 2. Show the glowing logo preloader
         preloader.classList.remove("hidden");
 
-        // 3. Send the email silently in the background
+        // 2. Send the email silently in the background
         const formData = new FormData(leadForm);
         fetch("https://formsubmit.co/ajax/yumarfaruq81@gmail.com", {
             method: "POST",
             body: formData
         }).catch(error => console.log("Email sent in background."));
 
-        // 4. Wait 2 seconds for the logo, THEN show the portfolio
+        // 3. Show the logo for 1.5 seconds (nice smooth transition)
         setTimeout(() => {
             preloader.classList.add("hidden");
             mainContent.classList.add("show");
-            localStorage.setItem("flowboy_unlocked", "true"); // Remember them for next time
-            initAnimations(); // Start the scroll animations
-        }, 2000); 
+            localStorage.setItem("flowboy_unlocked", "true"); // Remember them
+            initAnimations(); // Start scroll animations
+        }, 1500); // Reduced to 1.5 seconds for speed
     });
-
 
     // --- 3. TYPEWRITER EFFECT ---
     const typewriterElement = document.querySelector(".typewriter-text");
