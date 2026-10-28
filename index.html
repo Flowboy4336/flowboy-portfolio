@@ -27,15 +27,51 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+        <title>Yusuf Umarfaruk Adebayo (Flowboy) | Web Developer & Designer</title>
+
+    <!-- ADD THIS FAVICON LINE HERE -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
 </head>
 <body>
 
-    <!-- PRELOADER -->
+    <!-- 1. PRELOADER (Must be first so it shows immediately) -->
     <div id="preloader">
         <img src="logo.jpg" alt="Flowboy Logo" class="preloader-logo">
     </div>
 
-    <!-- MAIN CONTENT -->
+    <!-- 2. LEAD CAPTURE POPUP -->
+    <div id="lead-capture-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img src="logo.jpg" alt="Flowboy Logo" class="modal-logo">
+                <h2>Welcome to Flowboy's Portfolio</h2>
+                <p>Enter your details below to unlock my portfolio and see how I can help your business grow.</p>
+            </div>
+            <form id="lead-form">
+                <!-- FormSubmit hidden settings -->
+                <input type="hidden" name="_subject" value="🔥 NEW LEAD: Someone wants to work with you!">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://flowboy-portfolio.vercel.app/">
+                
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" name="name" id="lead-name" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label>Your Email</label>
+                    <input type="email" name="email" id="lead-email" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Your Phone Number (Optional)</label>
+                    <input type="tel" name="phone" id="lead-phone" placeholder="+234...">
+                </div>
+                <button type="submit" class="btn btn-solid full-width" id="unlock-btn">Unlock Portfolio</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 3. MAIN CONTENT -->
     <div id="main-content">
         
         <!-- NAVIGATION -->
@@ -262,15 +298,13 @@
             </div>
         </section>
 
-        <!-- NEW CONTACT SECTION -->
+        <!-- CONTACT SECTION -->
         <section id="contact" class="contact-section">
             <h2 class="section-title center fade-in">LET'S <span>WORK TOGETHER</span></h2>
             <p class="section-subtitle fade-in">Send me a message and I will reply directly to your email.</p>
 
             <div class="contact-container fade-in">
-                <!-- This action sends the email to your Gmail -->
                 <form action="https://formsubmit.co/yumarfaruq81@gmail.com" method="POST" class="contact-form">
-                    <!-- FormSubmit settings -->
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_subject" value="New message from your Portfolio!">
                     <input type="hidden" name="_template" value="table">
